@@ -5,37 +5,37 @@ import {
 	Typography,
 	Switch,
 	InputBase
-} from "@material-ui/core";
-import React, { useContext } from "react";
-import SearchIcon from "@material-ui/icons/Search";
-import { withStyles } from "@material-ui/core";
-import styles from "./styles/NavbarStyles";
-import { ThemeContext } from "./contexts/ThemeContext";
-import { LanguageContext } from "./contexts/LanguageContext";
+} from '@material-ui/core';
+import React, { useContext } from 'react';
+import SearchIcon from '@material-ui/icons/Search';
+import { withStyles } from '@material-ui/core';
+import styles from './styles/NavbarStyles';
+import { ThemeContext } from './contexts/ThemeContext';
+import { useLanguage } from './contexts/LanguageContext';
 
 const words = {
 	english: {
-		flag: "🎏",
-		search: "Search"
+		flag: '🎏',
+		search: 'Search'
 	},
 	french: {
-		flag: "🏴",
-		search: "Chercher"
+		flag: '🏴',
+		search: 'Chercher'
 	},
 	spanish: {
-		flag: "🎌",
-		search: "Buscar"
+		flag: '🎌',
+		search: 'Buscar'
 	}
 };
 
 function Navbar(props) {
 	const { classes } = props;
-	const { language } = useContext(LanguageContext);
+	const { language } = useLanguage();
 	const { search, flag } = words[language];
 	const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 	return (
 		<div className={classes.root}>
-			<AppBar position='static' color={isDarkMode ? "default" : "primary"}>
+			<AppBar position='static' color={isDarkMode ? 'default' : 'primary'}>
 				<Toolbar>
 					<IconButton className={classes.menuButton} color='inherit'>
 						<span>{flag}</span>

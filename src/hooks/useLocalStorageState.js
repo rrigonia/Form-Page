@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function useLocalStorageState(key, defaultVal) {
 	// Set a piece of state, based off of value in localStorage;
@@ -17,7 +17,7 @@ function useLocalStorageState(key, defaultVal) {
 		() => {
 			window.localStorage.setItem(key, JSON.stringify(state));
 		},
-		[ state ]
+		[ state, key ]
 	);
 	return [ state, setState ];
 }

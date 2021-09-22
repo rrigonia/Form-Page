@@ -1,22 +1,16 @@
-import "./App.css";
-// import Form from "./Form";
-// import Navbar from "./Navbar";
-// import PageContent from "./PageContent";
-// import { ThemeProvider } from "./contexts/ThemeContext";
-// import { LanguageProvider } from "./contexts/LanguageContext";
-import TodoApp from "./TodoApp";
+import Form from './Form';
+import Navbar from './Navbar';
+import PageContent from './PageContent';
+import { AppProviders } from './AppProviders';
 
 function App() {
 	return (
-		// <ThemeProvider>
-		// 	<LanguageProvider>
-		// 		<PageContent>
-		// 			<Navbar />
-		// 			<Form />
-		// 		</PageContent>
-		// 	</LanguageProvider>
-		// </ThemeProvider>
-		<TodoApp/>
+		<AppProviders>
+			<PageContent>
+				<Navbar />
+				<Form />
+			</PageContent>
+		</AppProviders>
 	);
 }
 

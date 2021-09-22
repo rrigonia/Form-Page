@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from 'react';
 import {
 	Avatar,
 	Paper,
@@ -12,34 +12,34 @@ import {
 	FormControlLabel,
 	Checkbox,
 	Button
-} from "@material-ui/core";
-import styles from "./styles/FormStyles";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { LanguageContext } from "./contexts/LanguageContext";
+} from '@material-ui/core';
+import styles from './styles/FormStyles';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { useLanguage } from './contexts/LanguageContext';
 
 const words = {
 	english: {
-		email: "Email",
-		password: "password",
-		remember: "Remember Me",
-		signIn: "Sing In"
+		email: 'Email',
+		password: 'password',
+		remember: 'Remember Me',
+		signIn: 'Sing In'
 	},
 	french: {
-		email: "Adresse Èlectionique",
-		password: "Mot de Passe",
-		remember: "Souviens-toi de Moi",
-		signIn: "Se Connecter"
+		email: 'Adresse Èlectionique',
+		password: 'Mot de Passe',
+		remember: 'Souviens-toi de Moi',
+		signIn: 'Se Connecter'
 	},
 	spanish: {
-		email: "Correo Electronico",
-		password: "contraseña",
-		remember: "Recordar",
-		signIn: "Iniciar Sesión"
+		email: 'Correo Electronico',
+		password: 'contraseña',
+		remember: 'Recordar',
+		signIn: 'Iniciar Sesión'
 	}
 };
 function Form(props) {
 	const { classes } = props;
-	const { changeLanguage, language } = useContext(LanguageContext);
+	const { language, changeLanguage } = useLanguage();
 	const { email, remember, password, signIn } = words[language];
 	return (
 		<main className={classes.main}>
@@ -56,11 +56,11 @@ function Form(props) {
 				<form className={classes.form}>
 					<FormControl margin='normal' required fullWidth>
 						<InputLabel htmlFor='email'>{email}</InputLabel>
-						<Input id='email' name='email' autoFocus />
+						<Input id='email' name='email' type='text' autoFocus />
 					</FormControl>
 					<FormControl margin='normal' required fullWidth>
 						<InputLabel htmlFor='password'>{password}</InputLabel>
-						<Input id='password' name='password' autoFocus />
+						<Input id='password' name='password' type='password' />
 					</FormControl>
 					<FormControlLabel
 						control={<Checkbox color='primary' />}
